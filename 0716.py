@@ -74,21 +74,22 @@ keyFun(a=1, b=2, c="3", d="ABCD")
 keyFun(a=1, b=2, c="3", d="ABCD", e="姓名", f="出生日")
 """
 
-#製作一個可以計算任意散行面積的Lambda
+"""#製作一個可以計算任意散行面積的Lambda。Lambda只能有一行內容作定義
 a = lambda r, d, p = 3.14 : r * r * p * (d / 360)               #r=半徑, d=圓心角, p=圓周率
 print(a(10,360))
+"""
 
-
-#製作一個函式,依用戶指定R/T/C(矩形.三角形.圓形),回傳對應形狀面積計算的Lambda
+"""#製作一個函式,依用戶指定R/T/C(矩形.三角形.圓形),回傳對應形狀面積計算的Lambda
 def getAreaLambda(s = "R") :                                    #無輸入形狀的話,內定為R(矩形)
     if s.upper() == "R" :
         return lambda w, h : w * h                              #矩形面積:底 w * 高 h
     elif s.upper() == "T" :
-        return lambda b, h : b * h / 2                          #
+        return lambda b, h : b * h / 2                          #三角形面積 : 底 b * 高 h / 2
     elif s.upper() == "C" :
-        return lambda r, p = 3.14 : r * r * p
+        return lambda r, p = 3.14 : r * r * p                   #圓形面積 : 半徑 r * 半徑 r * 圓周率 p
     else :
-        return None
+        return None                                             #無法計算 , 回傳 None
     
 a = getAreaLambda("C")
 print(a(10))
+"""
